@@ -15,8 +15,9 @@ CC = clang
 FLAGS = -Wall -Wextra -Werror -MMD
 RM = rm -rf
 include src.mk
-OBJS=$(SRCS:.c=.o)
-OBJDIR=./obj/
+# OBJS=$(SRCS:.c=.o)
+OBJDIR=./obj
+OBJS:= $(SRCS:%.c=$(OBJDIR)/%.o)
 DEP=$(OBJS:.o=.d)
 # OBJS=$(addprefix $(SRCS), $(OBJS_RUN))
 GREEN='\033[0;32m'
@@ -28,8 +29,9 @@ WHITE='\033[0;37m'
 
 all:	$(NAME)
 
-.c.o:
-	@clang $(FLAGS) -c $< -o $(<:.c=.o)
+# .c.o:
+$(OBJDIR)/%.o: %.c
+	@clang $(FLAGS) -c $< -o $@
 	@echo $(WHITE)".\c"
 
 $(NAME):	$(OBJS)
