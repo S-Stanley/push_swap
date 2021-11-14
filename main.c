@@ -20,7 +20,7 @@ char	**get_to_return(unsigned int size)
 	if (!to_return)
 	{
 		printf("Error while allocating pointer on get single arg");
-		exit(0);
+		return (NULL);
 	}
 	return (to_return);
 }
@@ -36,17 +36,31 @@ char	**get_single_arg(char *str)
 	x = -1;
 	last_index = 0;
 	to_return = get_to_return(count_occ(str, ' ') + 2);
+	if (!to_return)
+		return (NULL);
 	while (str[++i])
 	{
 		if (str[i] == ' ')
 		{
 			to_return[++x] = ft_substr(str, last_index, i);
+			if (!to_return[x])
+			{
+				free_that_matrice(to_return);
+				return (NULL);
+			}
 			last_index = i + 1;
 		}
 		while (str[i] == ' ')
 			i++;
 	}
 	to_return[++x] = ft_substr(str, last_index, i);
+	if (!to_return[x])
+	{
+		free_that_matrice(to_return);
+		return (NULL);
+	}
+	if (!to_return[x][0])
+		to_return[x] = 0;
 	to_return[++x] = 0;
 	return (to_return);
 }
@@ -61,10 +75,17 @@ char	**parse_argv(int argc, char **argv, char **nbr)
 	while (i < argc)
 	{
 		tmp = get_single_arg(argv[i]);
+		if (!tmp)
+		{
+			free_that_matrice(nbr);
+			exit(0);
+		}
 		x = 0;
 		while (tmp[x])
 		{
 			nbr = push_arr(nbr, tmp[x]);
+			if (!nbr)
+				exit(0);
 			x++;
 		}
 		free(tmp);

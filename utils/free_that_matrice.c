@@ -17,6 +17,8 @@ void	free_that_matrice(char **matrice)
 	unsigned int	i;
 
 	i = 0;
+	if (!matrice)
+		return ;
 	while (matrice[i])
 	{
 		free(matrice[i]);

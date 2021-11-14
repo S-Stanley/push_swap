@@ -17,8 +17,10 @@ char	*ft_substr(char *str, unsigned int start, unsigned int end)
 	char			*to_return;
 	unsigned int	i;
 
+	if (!str)
+		return (NULL);
 	to_return = malloc(sizeof(char) * (end - start + 2));
-	if (!str || !to_return)
+	if (!to_return)
 		return (NULL);
 	i = 0;
 	while (start <= end)
@@ -31,10 +33,5 @@ char	*ft_substr(char *str, unsigned int start, unsigned int end)
 		start++;
 	}
 	to_return[i] = 0;
-	if (!to_return || !to_return[0])
-	{
-		free(to_return);
-		to_return = NULL;
-	}
 	return (to_return);
 }

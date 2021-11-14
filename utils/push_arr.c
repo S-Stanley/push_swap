@@ -21,7 +21,8 @@ char	**push_arr(char **nbr, char *to_add)
 	if (!to_return)
 	{
 		printf("probleme allocation to_return in push_arr");
-		exit(0);
+		free_that_matrice(nbr);
+		return (NULL);
 	}
 	i = 0;
 	if (nbr)
