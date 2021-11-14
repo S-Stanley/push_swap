@@ -60,10 +60,6 @@ t_loop	ft_loop(t_loop loop, char *str)
 
 char	**get_single_arg(char *str)
 {
-	int				i;
-	char			**to_return;
-	int				x;
-	unsigned int	last_index;
 	t_loop			loop;
 
 	loop.i = -1;
@@ -73,7 +69,11 @@ char	**get_single_arg(char *str)
 	if (!loop.to_return)
 		return (NULL);
 	while (str[++loop.i])
+	{
 		loop = ft_loop(loop, str);
+		if (!loop.to_return)
+			return (NULL);
+	}
 	loop.to_return[++loop.x] = ft_substr(str, loop.last_index, loop.i);
 	loop.to_return[loop.x] = check_error_single_arg(loop.to_return, loop.x);
 	loop.to_return[++loop.x] = 0;
