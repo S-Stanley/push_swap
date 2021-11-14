@@ -10,3 +10,4 @@ void			read_that_matrice(char **matrice);
 unsigned int	count_occ(char *str, char occ);
 char			*ft_substr(char *str, unsigned int start, unsigned int end);
 char			**push_arr(char **nbr, char *to_add);
+void    free_that_matrice(char **matrice);

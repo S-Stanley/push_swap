@@ -5,7 +5,7 @@ char	*ft_substr(char *str, unsigned int start, unsigned int end)
 	char			*to_return;
 	unsigned int	i;
 
-	to_return = malloc(sizeof(char) * (end - start + 1));
+	to_return = malloc(sizeof(char) * (end - start + 2));
 	if (!str || !to_return)
 		return (NULL);
 	i = 0;

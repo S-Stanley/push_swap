@@ -51,6 +51,7 @@ char	**parse_argv(int argc, char **argv, char **nbr)
 			nbr = push_arr(nbr, tmp[x]);
 			x++;
 		}
+		free(tmp);
 		i++;
 	}
 	return (nbr);
@@ -65,5 +66,6 @@ int main(int argc, char **argv)
 		return (0);
 	nbr = parse_argv(argc, argv, nbr);
 	read_that_matrice(nbr);
+	free_that_matrice(nbr);
 	return (0);
 }
