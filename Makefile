@@ -12,35 +12,42 @@
 
 NAME = push_swap
 CC = clang
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -MMD
 RM = rm -rf
 include src.mk
 OBJS=$(SRCS:.c=.o)
-OBJDIR=./utils/
+OBJDIR=./obj/
+DEP=$(OBJS:.o=.d)
 # OBJS=$(addprefix $(SRCS), $(OBJS_RUN))
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 RED='\033[0;31m'
 WHITE='\033[0;37m'
 
-.c.o:	
-	@clang $(FLAGS) -c $< -o $(<:.c=.o)
-	@echo $(WHITE) "."
+-include $(DEP)
 
 all:	$(NAME)
 
+.c.o:
+	@clang $(FLAGS) -c $< -o $(<:.c=.o)
+	@echo $(WHITE)".\c"
+
 $(NAME):	$(OBJS)
 	@clang $(FLAGS) $(OBJS) -o $(NAME)
-	@echo $(GREEN)"push_swap has been created"
+	@echo $(GREEN)"\npush_swap has been created"
 
-clean:
-	@echo $(RED) "deleting files"
+clean:	cleandep
+	@echo $(RED)"Deleting .c files"
 	@rm -f $(OBJS)
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo $(RED) $(NAME) "has been deleted"
+	@echo $(RED)$(NAME) "has been deleted"
+
+cleandep:
+	@echo $(RED)"Deleting .d files.."
+	@rm -rf $(DEP)
 
 re:	fclean	all
 
-.PHONY: all fclean clean re
+.PHONY: all fclean clean re cleandep
