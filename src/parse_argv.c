@@ -87,7 +87,7 @@ char	**parse_argv(int argc, char **argv, char **nbr)
 	unsigned int	x;
 
 	i = 1;
-	while (i < argc)
+	while (i < (unsigned int)argc)
 	{
 		tmp = get_single_arg(argv[i]);
 		if (!tmp)
