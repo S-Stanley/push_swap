@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 13:25:47 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/14 13:25:47 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/14 13:49:02 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ char	**get_single_arg(char *str)
 		return (NULL);
 	}
 	if (!to_return[x][0])
+	{
+		free(to_return[x]);
 		to_return[x] = 0;
+	}
 	to_return[++x] = 0;
 	return (to_return);
 }
