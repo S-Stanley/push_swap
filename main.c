@@ -12,6 +12,19 @@
 
 #include "main.h"
 
+char	**get_to_return(unsigned int size)
+{
+	char	**to_return;
+
+	to_return = malloc(sizeof(char *) * size);
+	if (!to_return)
+	{
+		printf("Error while allocating pointer on get single arg");
+		exit(0);
+	}
+	return (to_return);
+}
+
 char	**get_single_arg(char *str)
 {
 	unsigned int	i;
@@ -22,14 +35,7 @@ char	**get_single_arg(char *str)
 	i = 0;
 	x = 0;
 	last_index = 0;
-	to_return = malloc(sizeof(char *) * (count_occ(str, ' ') + 2));
-	if (!to_return)
-	{
-		printf("Error while allocating pointer on get single arg");
-		exit(0);
-	}
-	while (str[i] == ' ')
-		i++;
+	to_return = get_to_return(count_occ(str, ' ') + 2);
 	while (str[i])
 	{
 		if (str[i] == ' ')
