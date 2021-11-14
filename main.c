@@ -27,28 +27,26 @@ char	**get_to_return(unsigned int size)
 
 char	**get_single_arg(char *str)
 {
-	unsigned int	i;
+	int				i;
 	char			**to_return;
-	unsigned int	x;
+	int				x;
 	unsigned int	last_index;
 
-	i = 0;
-	x = 0;
+	i = -1;
+	x = -1;
 	last_index = 0;
 	to_return = get_to_return(count_occ(str, ' ') + 2);
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] == ' ')
 		{
-			to_return[x] = ft_substr(str, last_index, i);
-			x++;
+			to_return[++x] = ft_substr(str, last_index, i);
 			last_index = i + 1;
 		}
 		while (str[i] == ' ')
 			i++;
-		i++;
 	}
-	to_return[x] = ft_substr(str, last_index, i);
+	to_return[++x] = ft_substr(str, last_index, i);
 	to_return[++x] = 0;
 	return (to_return);
 }

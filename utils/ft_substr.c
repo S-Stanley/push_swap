@@ -31,5 +31,7 @@ char	*ft_substr(char *str, unsigned int start, unsigned int end)
 		start++;
 	}
 	to_return[i] = 0;
+	if (!to_return || !to_return[0])
+		to_return = 0;
 	return (to_return);
 }
