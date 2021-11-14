@@ -20,7 +20,8 @@ int	main(int argc, char **argv)
 	if (!argc || !argv)
 		return (0);
 	nbr = parse_argv(argc, argv, nbr);
-	read_that_matrice(nbr);
+	printf("%d\n", is_sorted(nbr));
+	// read_that_matrice(nbr);
 	free_that_matrice(nbr);
 	return (0);
 }

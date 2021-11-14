@@ -33,5 +33,6 @@ char			*ft_substr(char *str, unsigned int start, unsigned int end);
 char			**push_arr(char **nbr, char *to_add);
 void			free_that_matrice(char **matrice);
 char			**parse_argv(int argc, char **argv, char **nbr);
+unsigned int	is_sorted(char	**stack);
 
 #endif
