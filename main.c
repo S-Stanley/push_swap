@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/14 13:25:47 by sserbin           #+#    #+#             */
+/*   Updated: 2021/11/14 13:25:47 by sserbin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "main.h"
 
 char	**get_single_arg(char *str)
@@ -57,7 +69,7 @@ char	**parse_argv(int argc, char **argv, char **nbr)
 	return (nbr);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	**nbr;
 
