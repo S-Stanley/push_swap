@@ -1,6 +1,7 @@
 SRCS= main.c \
 src/parse_argv.c \
 src/is_sorted.c \
+src/ft_algo.c \
 utils/count_len_matrice.c \
 utils/count_len_next.c \
 utils/count_occurence.c \
