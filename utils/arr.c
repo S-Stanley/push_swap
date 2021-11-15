@@ -1,22 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algo.c                                          :+:      :+:    :+:   */
+/*   arr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/15 01:55:41 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/15 01:55:42 by sserbin          ###   ########.fr       */
+/*   Created: 2021/11/15 01:56:13 by sserbin           #+#    #+#             */
+/*   Updated: 2021/11/15 01:56:14 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../main.h"
 
-t_pile	ft_algo(t_pile pile)
+int	max_arr(char **matrice)
 {
-	if (max_arr(pile.matrice_a) == atoi(pile.matrice_a[0]))
-		pile.matrice_a = rotate(pile.matrice_a, "ra");
-	else
-		pile = push_b(pile.matrice_a, pile.matrice_b);
-	return (pile);
+	unsigned int	i;
+	int				max;
+
+	i = 0;
+	max = -1;
+	while (matrice[i])
+	{
+		if (atoi(matrice[i]) > max || max == -1)
+			max = atoi(matrice[i]);
+		i++;
+	}
+	return (max);
+}
+
+int	min_arr(char **matrice)
+{
+	unsigned int	i;
+	int				min;
+
+	i = 0;
+	min = -1;
+	while (matrice[i])
+	{
+		if (atoi(matrice[i]) < min || min == -1)
+			min = atoi(matrice[i]);
+		i++;
+	}
+	return (min);
 }

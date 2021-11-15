@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algo.c                                          :+:      :+:    :+:   */
+/*   swap_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/15 01:55:41 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/15 01:55:42 by sserbin          ###   ########.fr       */
+/*   Created: 2021/11/15 01:56:06 by sserbin           #+#    #+#             */
+/*   Updated: 2021/11/15 01:56:07 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../main.h"
 
-t_pile	ft_algo(t_pile pile)
+char	**swap_a(char **matrice)
 {
-	if (max_arr(pile.matrice_a) == atoi(pile.matrice_a[0]))
-		pile.matrice_a = rotate(pile.matrice_a, "ra");
-	else
-		pile = push_b(pile.matrice_a, pile.matrice_b);
-	return (pile);
+	char	*tmp;
+
+	tmp = matrice[0];
+	matrice[0] = matrice[1];
+	matrice[1] = tmp;
+	printf("sa\n");
+	return (matrice);
 }
