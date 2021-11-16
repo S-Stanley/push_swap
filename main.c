@@ -91,7 +91,7 @@ t_pile	mex(t_pile pile)
 	return (pile);
 }
 
-void	deal_with_5_arg(t_pile pile)
+t_pile	deal_with_3_arg(t_pile pile)
 {
 	while (!is_sorted(pile.matrice_a))
 	{
@@ -100,6 +100,45 @@ void	deal_with_5_arg(t_pile pile)
 		else
 			pile.matrice_a = rotate_reverse(pile.matrice_a, "rra");
 	}
+	return (pile);
+}
+
+unsigned int	is_the_right_place(t_pile pile)
+{
+	if (min_arr(pile.matrice_a) > atoi(pile.matrice_b[0]))
+	{
+		if (min_arr(pile.matrice_a) == atoi(pile.matrice_a[0]))
+			return (1);
+	}
+	else if (max_arr(pile.matrice_a) < atoi(pile.matrice_b[0]))
+	{
+		if (max_arr(pile.matrice_a) == atoi(pile.matrice_a[count_len_matrice(pile.matrice_a) - 1]))
+			return (1);
+	}
+	else if (atoi(pile.matrice_b[0]) < atoi(pile.matrice_a[0]))
+	{
+		if (atoi(pile.matrice_b[0]) > atoi(pile.matrice_a[count_len_matrice(pile.matrice_a) - 1]))
+			return (1);
+	}
+	return (0);
+}
+
+void	deal_with_5_arg(t_pile pile)
+{
+	pile = push_b(pile.matrice_a, pile.matrice_b);
+	pile = push_b(pile.matrice_a, pile.matrice_b);
+	while (!is_sorted(pile.matrice_a))
+		pile = deal_with_3_arg(pile);
+	if (atoi(pile.matrice_b[0]) < atoi(pile.matrice_b[1]))
+		swap(pile.matrice_b, "sb");
+	while (!is_the_right_place(pile))
+		pile.matrice_a = rotate(pile.matrice_a, "ra");
+	pile = push_a(pile.matrice_a, pile.matrice_b);
+	while (!is_the_right_place(pile))
+		pile.matrice_a = rotate(pile.matrice_a, "ra");
+	pile = push_a(pile.matrice_a, pile.matrice_b);
+	while (!is_sorted(pile.matrice_a))
+		pile.matrice_a = rotate_reverse(pile.matrice_a, "rra");
 }
 
 int main(int argc, char **argv)
@@ -112,9 +151,9 @@ int main(int argc, char **argv)
 		return (0);
 	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
 	if (argc <= 4)
-		deal_with_5_arg(pile);
+		deal_with_3_arg(pile);
 	else if (argc <= 6)
-		return (0);
+		deal_with_5_arg(pile);
 	else if (argc <= 101)
 		return (0);
 	else
