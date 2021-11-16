@@ -12,13 +12,13 @@
 
 #include "../main.h"
 
-char	**swap_a(char **matrice)
+char	**swap(char **matrice, char *cmd)
 {
 	char	*tmp;
 
 	tmp = matrice[0];
 	matrice[0] = matrice[1];
 	matrice[1] = tmp;
-	printf("sa\n");
+	printf("%s\n", cmd);
 	return (matrice);
 }

@@ -73,17 +73,8 @@ unsigned int	is_sorted_globally(char **matrice)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+t_pile	mex(t_pile pile)
 {
-	t_pile	pile;
-
-	pile.matrice_a = NULL;
-	pile.matrice_b = NULL;
-	if (!argc || !argv)
-		return (0);
-	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
-
-
 	while (!is_sorted(pile.matrice_a))
 	{
 		while (max_arr(pile.matrice_a) != atoi(pile.matrice_a[0]))
@@ -97,5 +88,35 @@ int	main(int argc, char **argv)
 	}
 	while (!is_sorted(pile.matrice_a))
 		pile.matrice_a = rotate(pile.matrice_a, "ra");
-	return (0);
+	return (pile);
+}
+
+void	deal_with_5_arg(t_pile pile)
+{
+	while (!is_sorted(pile.matrice_a))
+	{
+		if (atoi(pile.matrice_a[0]) > atoi(pile.matrice_a[1]))
+			swap(pile.matrice_a, "sa");
+		else
+			pile.matrice_a = rotate_reverse(pile.matrice_a, "rra");
+	}
+}
+
+int main(int argc, char **argv)
+{
+	t_pile	pile;
+
+	pile.matrice_a = NULL;
+	pile.matrice_b = NULL;
+	if (!argc || !argv)
+		return (0);
+	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
+	if (argc <= 4)
+		deal_with_5_arg(pile);
+	else if (argc <= 6)
+		return (0);
+	else if (argc <= 101)
+		return (0);
+	else
+		return(0);
 }

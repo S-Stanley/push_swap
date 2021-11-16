@@ -28,3 +28,19 @@ char	**rotate(char **matrice, char *cmd)
 	printf("%s\n", cmd);
 	return (matrice);
 }
+
+char	**rotate_reverse(char **matrice, char *cmd)
+{
+	char			**to_return;
+	unsigned int	i;
+
+	to_return = malloc(sizeof(char *) * (count_len_matrice(matrice) + 1));
+	i = 0;
+	to_return[i] = matrice[count_len_matrice(matrice) - 1];
+	while (matrice[++i])
+		to_return[i] = matrice[i - 1];
+	to_return[i] = 0;
+	free(matrice);
+	printf("%s\n", cmd);
+	return (to_return);
+}

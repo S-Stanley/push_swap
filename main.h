@@ -46,5 +46,7 @@ char			**rotate(char **matrice, char *cmd);
 t_pile			push_b(char **a, char **b);
 t_pile			push_a(char **a, char **b);
 void			read_that_matrice(char **matrice);
+char			**swap(char **matrice, char *cmd);
+char			**rotate_reverse(char **matrice, char *cmd);
 
 #endif
