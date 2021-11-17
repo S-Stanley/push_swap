@@ -27,3 +27,18 @@ unsigned int	is_sorted(char	**stack)
 	}
 	return (1);
 }
+
+unsigned int	is_sorted_reverse(char **stack)
+{
+	unsigned int	i;
+
+	if (count_len_matrice(stack) <= 1)
+		return (1);
+	i = count_len_matrice(stack);
+	while (--i > 0)
+	{
+		if (atoi(stack[i]) < atoi(stack[i - 1]))
+			return (0);
+	}
+	return (1);
+}

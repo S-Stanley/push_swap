@@ -16,8 +16,9 @@ FLAGS = -Wall -Wextra -Werror -MMD
 RM = rm -rf
 include src.mk
 # OBJS=$(SRCS:.c=.o)
-OBJDIR=./obj
-OBJS:= $(SRCS:%.c=$(OBJDIR)/%.o)
+OBJDIR=obj
+OBJS= $(SRCS:%.c=$(OBJDIR)/%.o)
+# OBJS:= $(SRCS:.c=.o)
 DEP=$(OBJS:.o=.d)
 # OBJS=$(addprefix $(SRCS), $(OBJS_RUN))
 GREEN='\033[0;32m'
@@ -29,13 +30,18 @@ WHITE='\033[0;37m'
 
 all:	$(NAME)
 
-# .c.o:
-$(OBJDIR)/%.o: %.c
-	@clang $(FLAGS) -c $< -o $@
-	@echo $(WHITE)".\c"
+$(OBJDIR):
+	$(shell mkdir obj)
 
-$(NAME):	$(OBJS)
-	@clang $(FLAGS) $(OBJS) -o $(NAME)
+$(OBJDIR)/%.o: %.c
+# .c.o:
+# clang $(FLAGS) -c $< -o $(<:.c=.o)
+	@clang $(FLAGS) -c -o $(OBJDIR)/$(@F) $<
+	@echo $(WRITE)"Compiling" $<
+
+$(NAME): 	$(OBJDIR) $(OBJS)
+	$(CC) obj/*.o -o push_swap
+# $(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo $(GREEN)"\npush_swap has been created"
 
 clean:	cleandep

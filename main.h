@@ -48,5 +48,6 @@ t_pile			push_a(char **a, char **b);
 void			read_that_matrice(char **matrice);
 char			**swap(char **matrice, char *cmd);
 char			**rotate_reverse(char **matrice, char *cmd);
+unsigned int	is_sorted_reverse(char **stack);
 
 #endif
