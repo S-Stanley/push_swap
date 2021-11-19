@@ -21,8 +21,8 @@ int	max_arr(char **matrice)
 	max = -1;
 	while (matrice[i])
 	{
-		if (atoi(matrice[i]) > max || max == -1)
-			max = atoi(matrice[i]);
+		if (ft_atoi(matrice[i]) > max || max == -1)
+			max = ft_atoi(matrice[i]);
 		i++;
 	}
 	return (max);
@@ -37,8 +37,8 @@ int	min_arr(char **matrice)
 	min = -1;
 	while (matrice[i])
 	{
-		if (atoi(matrice[i]) < min || min == -1)
-			min = atoi(matrice[i]);
+		if (ft_atoi(matrice[i]) < min || min == -1)
+			min = ft_atoi(matrice[i]);
 		i++;
 	}
 	return (min);

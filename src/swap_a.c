@@ -19,6 +19,6 @@ char	**swap(char **matrice, char *cmd)
 	tmp = matrice[0];
 	matrice[0] = matrice[1];
 	matrice[1] = tmp;
-	printf("%s\n", cmd);
+	print_text(cmd);
 	return (matrice);
 }

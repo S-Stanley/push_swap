@@ -64,7 +64,7 @@ t_pile	push_b(char **a, char **b)
 	new_a[i - 1] = 0;
 	to_return.matrice_a = new_a;
 	to_return.matrice_b = b;
-	printf("pb\n");
+	print_text("pb\n");
 	return (to_return);
 }
 
@@ -89,6 +89,6 @@ t_pile	push_a(char **a, char **b)
 	new_b[i - 1] = 0;
 	to_return.matrice_a = a;
 	to_return.matrice_b = new_b;
-	printf("pa\n");
+	print_text("pa\n");
 	return (to_return);
 }

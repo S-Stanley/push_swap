@@ -25,7 +25,7 @@ char	**rotate(char **matrice, char *cmd)
 		i++;
 	}
 	matrice[i] = tmp;
-	printf("%s\n", cmd);
+	print_text(cmd);
 	return (matrice);
 }
 
@@ -41,6 +41,6 @@ char	**rotate_reverse(char **matrice, char *cmd)
 		to_return[i] = matrice[i - 1];
 	to_return[i] = 0;
 	free(matrice);
-	printf("%s\n", cmd);
+	print_text(cmd);
 	return (to_return);
 }

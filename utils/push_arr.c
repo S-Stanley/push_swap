@@ -20,7 +20,7 @@ char	**push_arr(char **nbr, char *to_add)
 	to_return = malloc(sizeof(char *) * (count_len_matrice(nbr) + 2));
 	if (!to_return)
 	{
-		printf("probleme allocation to_return in push_arr");
+		print_text("probleme allocation to_return in push_arr");
 		free_that_matrice(nbr);
 		return (NULL);
 	}

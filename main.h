@@ -13,7 +13,6 @@
 #ifndef MAIN_H
 # define MAIN_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -49,5 +48,9 @@ void			read_that_matrice(char **matrice);
 char			**swap(char **matrice, char *cmd);
 char			**rotate_reverse(char **matrice, char *cmd);
 unsigned int	is_sorted_reverse(char **stack);
+char			*ft_itoa(int n);
+unsigned int	ft_strlen(char *str);
+int				ft_atoi(char *str);
+void			print_text(char *str);
 
 #endif

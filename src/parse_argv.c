@@ -19,7 +19,7 @@ char	**get_to_return(unsigned int size)
 	to_return = malloc(sizeof(char *) * size);
 	if (!to_return)
 	{
-		printf("Error while allocating pointer on get single arg");
+		print_text("Error while allocating pointer on get single arg");
 		return (NULL);
 	}
 	return (to_return);
