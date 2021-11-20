@@ -18,4 +18,5 @@ utils/arr.c \
 utils/ft_itoa.c \
 utils/ft_atoi.c \
 utils/ft_strlen.c \
-utils/print_text.c
+utils/print_text.c \
+utils/ft_strdup.c

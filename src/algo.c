@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algo.c                                          :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 01:55:41 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/15 01:55:42 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 13:15:50 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_pile	deal_with_five_arg(t_pile pile)
 	return (pile);
 }
 
-void	deal_with_five_hundred(t_pile pile, unsigned int size)
+t_pile	deal_with_five_hundred(t_pile pile, unsigned int size)
 {
 	char			**grp;
 	unsigned int	to_start;
@@ -57,6 +57,7 @@ void	deal_with_five_hundred(t_pile pile, unsigned int size)
 			pile = push_b(pile.matrice_a, pile.matrice_b);
 			x++;
 		}
+		free_that_matrice(grp);
 	}
 	while (count_len_matrice(pile.matrice_b) > 0)
 	{
@@ -68,6 +69,7 @@ void	deal_with_five_hundred(t_pile pile, unsigned int size)
 				pile.matrice_b = rotate_reverse(pile.matrice_b, "rrb\n");
 		pile = push_a(pile.matrice_a, pile.matrice_b);
 	}
+	return (pile);
 }
 
 t_pile	deal_with_three_arg(t_pile pile)

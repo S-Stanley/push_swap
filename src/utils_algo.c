@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 01:38:50 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/20 01:38:51 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 13:28:11 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ char	**find_the_lowers(char **matrice, int nb_rotation)
 			if ((!min || ft_atoi(matrice[i]) < ft_atoi(min)))
 			{
 				if (!find_in_arr(buffer, ft_atoi(matrice[i])))
-					min = matrice[i];
+					min = ft_strdup(matrice[i]);
 			}
 			i++;
 		}

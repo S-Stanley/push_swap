@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 13:25:51 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/14 13:25:52 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 13:26:23 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@ void			print_text(char *str);
 unsigned int	find_in_arr(char **matrice, int to_find);
 void			verif_arg(char **matrice);
 t_pile			deal_with_five_arg(t_pile pile);
-void			deal_with_five_hundred(t_pile pile, unsigned int size);
+t_pile			deal_with_five_hundred(t_pile pile, unsigned int size);
 t_pile			deal_with_three_arg(t_pile pile);
 char			**find_the_lowers(char **matrice, int nb_rotation);
 unsigned int	should_start_with_rotate(char **matrice, char **grp);
 unsigned int	get_index(char **matrice, int value);
 unsigned int	is_the_right_place(t_pile pile);
 unsigned int	should_rotate(char **matrice, unsigned int index);
+char		*ft_strdup(char *str);
 
 #endif

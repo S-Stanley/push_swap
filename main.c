@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 13:25:47 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/20 13:05:46 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 13:09:40 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	else if (argc <= 6)
 		pile = deal_with_five_arg(pile);
 	else
-		deal_with_five_hundred(pile, size);
+		pile = deal_with_five_hundred(pile, size);
 	free_that_matrice(pile.matrice_a);
 	if (pile.matrice_b)
 		free_that_matrice(pile.matrice_b);
