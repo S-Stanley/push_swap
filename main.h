@@ -61,6 +61,6 @@ unsigned int	should_start_with_rotate(char **matrice, char **grp);
 unsigned int	get_index(char **matrice, int value);
 unsigned int	is_the_right_place(t_pile pile);
 unsigned int	should_rotate(char **matrice, unsigned int index);
-char		*ft_strdup(char *str);
+char			*ft_strdup(char *str);
 
 #endif

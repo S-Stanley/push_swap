@@ -75,10 +75,13 @@ unsigned int	is_sorted_globally(char **matrice)
 		i++;
 	}
 	max_index = i - 1;
-	while (matrice[i] && i != max_index && i + 1 <= count_len_matrice(matrice) - 1)
+	while (matrice[i] && i != max_index)
 	{
-		if (ft_atoi(matrice[i]) > ft_atoi(matrice[i + 1]))
-			return (0);
+		if (i + 1 <= count_len_matrice(matrice) - 1)
+		{
+			if (ft_atoi(matrice[i]) > ft_atoi(matrice[i + 1]))
+				return (0);
+		}
 		i++;
 	}
 	return (1);

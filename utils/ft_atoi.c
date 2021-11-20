@@ -56,4 +56,3 @@ long long	ft_atoi(char *str)
 	}
 	return (res * pos);
 }
-
