@@ -12,7 +12,7 @@
 
 NAME = push_swap
 CC = clang
-FLAGS = -Wall -Wextra -Werror -MMD
+FLAGS = -Wall -Wextra -Werror -MMD -ggdb3
 RM = rm -rf
 include src.mk
 # OBJS=$(SRCS:.c=.o)
