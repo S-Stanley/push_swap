@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	if (!argc || !argv)
 		return (0);
 	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
-	if (argc > 2)
+	if (argc > 1)
 		verif_arg(pile.matrice_a);
 	size = count_len_matrice(pile.matrice_a);
 	if (argc <= 4)
