@@ -1,52 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   _bonus.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 17:07:31 by sserbin           #+#    #+#             */
+/*   Updated: 2021/11/20 17:07:34 by sserbin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../main.h"
-#include "stdio.h"
 #include "_bonus.h"
 
-unsigned int	get_size_concat(char *s1, char *s2)
-{
-	if (!s1)
-		return (ft_strlen(s2) + 1);
-	if (!s2)
-		return (ft_strlen(s1) + 1);
-	return (ft_strlen(s1) + ft_strlen(s2) + 1);
-}
-
-char	*ft_concat(char *buffer, char *new_buffer)
-{
-	unsigned int	i;
-	unsigned int	x;
-	char			*to_return;
-
-	i = 0;
-	to_return = malloc(sizeof(char) * (ft_strlen(buffer) + ft_strlen(new_buffer) + 1));
-	if (!to_return)
-	{
-		free(buffer);
-		free(new_buffer);
-		exit(0);
-	}
-	if (buffer)
-	{
-		while (buffer[i])
-		{
-			to_return[i] = buffer[i];
-			i++;
-		}
-	}
-	x = 0;
-	while (new_buffer[x])
-	{
-		to_return[i] = new_buffer[x];
-		x++;
-		i++;
-	}
-	to_return[i] = 0;
-	free(buffer);
-	free(new_buffer);
-	return (to_return);
-}
-
-char	*get_commandes(unsigned int	size)
+char	*get_commandes(unsigned int size)
 {
 	char			*buffer;
 	unsigned int	readed;
@@ -64,7 +31,7 @@ char	*get_commandes(unsigned int	size)
 		if (readed == 0)
 		{
 			free(new_buffer);
-			break;
+			break ;
 		}
 		buffer = ft_concat(buffer, new_buffer);
 	}
@@ -109,20 +76,27 @@ t_pile	launch_algo(t_pile pile, char **cmd)
 	return (pile);
 }
 
-int	main(int argc, char **argv)
+t_pile	setup_pile(void)
 {
-	unsigned int 	size;
-	char 			**cmd;
-	char			*buffer;
-	t_pile			pile;
+	t_pile	pile;
 
 	pile.matrice_a = NULL;
 	pile.matrice_b = NULL;
+	return (pile);
+}
+
+int	main(int argc, char **argv)
+{
+	unsigned int	size;
+	char			**cmd;
+	char			*buffer;
+	t_pile			pile;
+
+	pile = setup_pile();
 	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
 	if (argc > 2)
 		verif_arg(pile.matrice_a);
-	size = 1;
-	buffer = get_commandes(size);
+	buffer = get_commandes(1);
 	if (buffer)
 	{
 		cmd = ft_split(buffer, '\n');
