@@ -2,6 +2,15 @@
 #include "stdio.h"
 #include "_bonus.h"
 
+unsigned int	get_size_concat(char *s1, char *s2)
+{
+	if (!s1)
+		return (ft_strlen(s2) + 1);
+	if (!s2)
+		return (ft_strlen(s1) + 2);
+	return (ft_strlen(s1) + ft_strlen(s2) + 1);
+}
+
 char	*ft_concat(char *s1, char *s2)
 {
 	unsigned int	i;
@@ -9,7 +18,7 @@ char	*ft_concat(char *s1, char *s2)
 	char			*to_return;
 
 	i = 0;
-	to_return = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	to_return = malloc(sizeof(char) * get_size_concat(s1, s2));
 	if (!to_return)
 	{
 		free(s1);
