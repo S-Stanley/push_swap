@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 01:55:55 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/15 01:55:56 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 13:07:59 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ char	**push_begin(char **matrice, char *to_add)
 		}
 	}
 	to_return[i + 1] = 0;
-	// free_that_matrice(matrice);
+	free(matrice);
+	//free_that_matrice(matrice);
 	return (to_return);
 }
 
@@ -64,6 +65,7 @@ t_pile	push_b(char **a, char **b)
 	new_a[i - 1] = 0;
 	to_return.matrice_a = new_a;
 	to_return.matrice_b = b;
+	free(a);
 	print_text("pb\n");
 	return (to_return);
 }
@@ -89,6 +91,7 @@ t_pile	push_a(char **a, char **b)
 	new_b[i - 1] = 0;
 	to_return.matrice_a = a;
 	to_return.matrice_b = new_b;
+	free(b);
 	print_text("pa\n");
 	return (to_return);
 }
