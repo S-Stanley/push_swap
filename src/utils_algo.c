@@ -98,6 +98,11 @@ char	**find_the_lowers(char **matrice, int nb_rotation)
 
 	buffer = NULL;
 	tmp = ft_itoa(min_arr(matrice));
+	if (!tmp)
+	{
+		free_that_matrice(matrice);
+		exit(0);
+	}
 	buffer = push_arr(buffer, tmp);
 	free(tmp);
 	x = 0;

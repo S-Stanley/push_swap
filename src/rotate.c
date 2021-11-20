@@ -35,6 +35,11 @@ char	**rotate_reverse(char **matrice, char *cmd)
 	unsigned int	i;
 
 	to_return = malloc(sizeof(char *) * (count_len_matrice(matrice) + 1));
+	if (!to_return)
+	{
+		free_that_matrice(matrice);
+		exit(0);
+	}
 	i = 0;
 	to_return[i] = matrice[count_len_matrice(matrice) - 1];
 	while (matrice[++i])

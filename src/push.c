@@ -51,10 +51,10 @@ t_pile	push_b(char **a, char **b)
 	unsigned int	i;
 
 	b = push_begin(b, a[0]);
-	if (!b)
+	if (!b || !a)
 		clean_and_exit(a, b);
 	new_a = malloc(sizeof(char *) * (count_len_matrice(a) + 1));
-	if (!a)
+	if (!new_a)
 		clean_and_exit(a, b);
 	i = 1;
 	while (a[i])
