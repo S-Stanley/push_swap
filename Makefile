@@ -10,52 +10,87 @@
 #                                                                              #
 # **************************************************************************** #
 
+SRC= main.c \
+	src/parse_argv.c \
+	src/is_sorted.c \
+	src/algo.c \
+	src/push.c \
+	src/rotate.c \
+	src/swap_a.c \
+	src/verif_arguments.c \
+	src/utils_algo.c \
+	utils/count_len_matrice.c \
+	utils/count_len_next.c \
+	utils/count_occurence.c \
+	utils/free_that_matrice.c \
+	utils/ft_substr.c \
+	utils/push_arr.c \
+	utils/read_that_matrice.c \
+	utils/arr.c \
+	utils/ft_itoa.c \
+	utils/ft_atoi.c \
+	utils/ft_strlen.c \
+	utils/print_text.c \
+	utils/ft_strdup.c
+OBJS = $(SRC:.c=.o)
 NAME = push_swap
 CC = clang
-FLAGS = -Wall -Wextra -Werror -MMD -ggdb3
+FLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-include src.mk
-# OBJS=$(SRCS:.c=.o)
-OBJDIR=obj
-OBJS= $(SRCS:%.c=$(OBJDIR)/%.o)
-# OBJS:= $(SRCS:.c=.o)
-DEP=$(OBJS:.o=.d)
-# OBJS=$(addprefix $(SRCS), $(OBJS_RUN))
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-RED='\033[0;31m'
-WHITE='\033[0;37m'
+BONUS_SRC = src/parse_argv.c \
+	src/is_sorted.c \
+	src/algo.c \
+	src/push.c \
+	src/rotate.c \
+	src/swap_a.c \
+	src/verif_arguments.c \
+	src/utils_algo.c \
+	utils/count_len_matrice.c \
+	utils/count_len_next.c \
+	utils/count_occurence.c \
+	utils/free_that_matrice.c \
+	utils/ft_substr.c \
+	utils/push_arr.c \
+	utils/read_that_matrice.c \
+	utils/arr.c \
+	utils/ft_itoa.c \
+	utils/ft_atoi.c \
+	utils/ft_strlen.c \
+	utils/print_text.c \
+	utils/ft_strdup.c \
+	_bonus/_bonus_ft_concat.c \
+	_bonus/_bonus_ft_split.c \
+	_bonus/_bonus.c
+BONUS_OBJS=$(BONUS_SRC:.c=.o)
+BONUS_NAME= checker
 
--include $(DEP)
+.c.o:
+	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 all:	$(NAME)
 
-$(OBJDIR):
-	$(shell mkdir obj)
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-$(OBJDIR)/%.o: %.c
-# .c.o:
-# clang $(FLAGS) -c $< -o $(<:.c=.o)
-	@clang $(FLAGS) -c -o $(OBJDIR)/$(@F) $<
-	@echo $(WRITE)"Compiling" $<
+clean:
+	$(RM) $(OBJS)
 
-$(NAME): 	$(OBJDIR) $(OBJS)
-	$(CC) obj/*.o -o push_swap
-# $(CC) $(FLAGS) $(OBJS) -o $(NAME)
-	@echo $(GREEN)"\npush_swap has been created"
-
-clean:	cleandep
-	@echo $(RED)"Deleting .c files"
-	@rm -f $(OBJS)
+re: clean all
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo $(RED)$(NAME) "has been deleted"
+	$(RM) $(NAME)
 
-cleandep:
-	@echo $(RED)"Deleting .d files.."
-	@rm -rf $(DEP)
+$(BONUS_NAME): $(BONUS_OBJS)
+	$(CC) $(FLAGS) $(BONUS_OBJS) -o $(BONUS_NAME)
 
-re:	fclean	all
+bonus: $(NAME) $(BONUS_NAME)
 
-.PHONY: all fclean clean re cleandep bonus
+bonus_clean:
+	$(RM) $(BONUS_OBJS)
+
+bonus_re: bonus_clean bonus
+
+bonus_fclean: bonus_clean
+	$(RM) $(BONUS_NAME)
+
+.PHONY: all clean re fclean bonus bonus_clean bonus_re bonus_fclean

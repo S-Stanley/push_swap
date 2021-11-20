@@ -87,7 +87,6 @@ t_pile	setup_pile(void)
 
 int	main(int argc, char **argv)
 {
-	unsigned int	size;
 	char			**cmd;
 	char			*buffer;
 	t_pile			pile;
@@ -96,7 +95,7 @@ int	main(int argc, char **argv)
 	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
 	if (argc > 2)
 		verif_arg(pile.matrice_a);
-	buffer = get_commandes(1);
+	buffer = get_commandes(10);
 	if (buffer)
 	{
 		cmd = ft_split(buffer, '\n');
