@@ -19,12 +19,12 @@ t_pile	deal_with_five_arg(t_pile pile)
 	while (!is_sorted(pile.matrice_a))
 		pile = deal_with_three_arg(pile);
 	if (ft_atoi(pile.matrice_b[0]) < ft_atoi(pile.matrice_b[1]))
-		swap(pile.matrice_b, "sb");
+		swap(pile.matrice_b, "sb\n");
 	while (!is_the_right_place(pile))
-		pile.matrice_a = rotate(pile.matrice_a, "ra");
+		pile.matrice_a = rotate(pile.matrice_a, "ra\n");
 	pile = push_a(pile.matrice_a, pile.matrice_b);
 	while (!is_the_right_place(pile))
-		pile.matrice_a = rotate(pile.matrice_a, "ra");
+		pile.matrice_a = rotate(pile.matrice_a, "ra\n");
 	pile = push_a(pile.matrice_a, pile.matrice_b);
 	while (!is_sorted(pile.matrice_a))
 		pile.matrice_a = rotate_reverse(pile.matrice_a, "rra\n");
@@ -75,7 +75,7 @@ t_pile	deal_with_three_arg(t_pile pile)
 	while (!is_sorted(pile.matrice_a))
 	{
 		if (ft_atoi(pile.matrice_a[0]) > ft_atoi(pile.matrice_a[1]))
-			swap(pile.matrice_a, "sa");
+			swap(pile.matrice_a, "sa\n");
 		else
 			pile.matrice_a = rotate_reverse(pile.matrice_a, "rra\n");
 	}
