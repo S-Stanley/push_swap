@@ -59,4 +59,6 @@ void	verif_arg(char **matrice)
 		i++;
 	}
 	check_duplication(matrice);
+	if (is_sorted(matrice))
+		exit(0);
 }
