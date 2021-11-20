@@ -43,3 +43,43 @@ int	min_arr(char **matrice)
 	}
 	return (min);
 }
+
+unsigned int	find_in_arr(char **matrice, int to_find)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (!matrice)
+		return (0);
+	while (matrice[i])
+	{
+		if (ft_atoi(matrice[i]) == to_find)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+unsigned int	is_sorted_globally(char **matrice)
+{
+	int				min;
+	unsigned int	i;
+	unsigned int	max_index;
+
+	min = min_arr(matrice);
+	i = 1;
+	while (matrice[i] && ft_atoi(matrice[i]) != min)
+	{
+		if (ft_atoi(matrice[i]) < ft_atoi(matrice[i - 1]))
+			return (0);
+		i++;
+	}
+	max_index = i - 1;
+	while (matrice[i] && i != max_index && i + 1 <= count_len_matrice(matrice) - 1)
+	{
+		if (ft_atoi(matrice[i]) > ft_atoi(matrice[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
+}

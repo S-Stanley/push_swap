@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 01:28:11 by sserbin           #+#    #+#             */
+/*   Updated: 2021/11/20 01:28:12 by sserbin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../main.h"
 
-int		ft_check_pos(int n)
+int	ft_check_pos(int n)
 {
 	if (n >= 0)
 		return (0);
 	return (1);
 }
 
-int		ft_int_len(int n)
+int	ft_int_len(int n)
 {
 	int		i;
 

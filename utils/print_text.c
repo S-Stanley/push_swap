@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algo.c                                          :+:      :+:    :+:   */
+/*   print_text.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/15 01:55:41 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/15 01:55:42 by sserbin          ###   ########.fr       */
+/*   Created: 2021/11/20 01:28:21 by sserbin           #+#    #+#             */
+/*   Updated: 2021/11/20 01:28:22 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../main.h"
 
-t_pile	ft_algo(t_pile pile)
+void	print_text(char *str)
 {
-	if (max_arr(pile.matrice_a) == ft_atoi(pile.matrice_a[0]))
-		pile.matrice_a = rotate(pile.matrice_a, "ra");
-	else
-		pile = push_b(pile.matrice_a, pile.matrice_b);
-	return (pile);
+	write(1, str, ft_strlen(str));
 }
