@@ -57,7 +57,7 @@ void			print_text(char *str);
 unsigned int	find_in_arr(char **matrice, int to_find);
 void			verif_arg(char **matrice);
 t_pile			deal_with_five_arg(t_pile pile);
-t_pile			deal_with_five_hundred(t_pile pile, unsigned int size);
+t_pile			deal_with_a_lot(t_pile pile, unsigned int size);
 t_pile			deal_with_three_arg(t_pile pile);
 char			**find_the_lowers(char **matrice, int nb_rotation);
 unsigned int	should_start_with_rotate(char **matrice, char **grp);

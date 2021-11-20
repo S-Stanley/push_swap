@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	else if (size <= 5)
 		pile = deal_with_five_arg(pile);
 	else
-		pile = deal_with_five_hundred(pile, size);
+		pile = deal_with_a_lot(pile, size);
 	free_that_matrice(pile.matrice_a);
 	if (pile.matrice_b)
 		free_that_matrice(pile.matrice_b);

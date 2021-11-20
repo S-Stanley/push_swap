@@ -12,6 +12,8 @@
 
 #include "../main.h"
 
+#include <stdio.h>
+
 t_pile	deal_with_five_arg(t_pile pile)
 {
 	pile = push_b(pile.matrice_a, pile.matrice_b);
@@ -37,7 +39,7 @@ t_pile	first_side(t_pile pile, unsigned int rotations)
 	char			**grp;
 	unsigned int	x;
 
-	while (count_len_matrice(pile.matrice_a) > 2)
+	while (count_len_matrice(pile.matrice_a) > 1)
 	{
 		grp = find_the_lowers(pile.matrice_a, rotations);
 		to_start = should_start_with_rotate(pile.matrice_a, grp);
@@ -59,7 +61,7 @@ t_pile	first_side(t_pile pile, unsigned int rotations)
 	return (pile);
 }
 
-t_pile	deal_with_five_hundred(t_pile pile, unsigned int size)
+t_pile	deal_with_a_lot(t_pile pile, unsigned int size)
 {
 	unsigned int	index;
 
