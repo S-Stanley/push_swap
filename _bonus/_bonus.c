@@ -43,9 +43,11 @@ int	main(int argc, char **argv)
 	unsigned int	readed;
 	unsigned int 	size;
 	char			*new_buffer;
+	char 			**to_print;
 
 	buffer = NULL;
 	size = 40;
+	new_buffer = NULL;
 	while (1)
 	{
 		new_buffer = malloc(sizeof(char) * (ft_strlen(buffer) + size));
@@ -61,7 +63,7 @@ int	main(int argc, char **argv)
 		buffer = ft_concat(buffer, new_buffer);
 	}
 
-	char **to_print = ft_split(buffer, '\n');
+	to_print = ft_split(buffer, '\n');
 	int i = 0;
 	while (to_print[i])
 	{
