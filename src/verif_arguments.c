@@ -52,7 +52,7 @@ void	verif_arg(char **matrice)
 			if (matrice[i][x] > '9' || matrice[i][x] < '0')
 				if (matrice[i][x] != '-')
 					free_and_exit(matrice);
-			if (ft_atoi(matrice[i]) < -2147483648 || ft_atoi(matrice[i]) > 2147483647)
+			if (ft_atoi(matrice[i]) < I_MIN || ft_atoi(matrice[i]) > I_MAX)
 				free_and_exit(matrice);
 			x++;
 		}

@@ -31,15 +31,12 @@ t_pile	deal_with_five_arg(t_pile pile)
 	return (pile);
 }
 
-t_pile	deal_with_five_hundred(t_pile pile, unsigned int size)
+t_pile	first_side(t_pile pile, unsigned int rotations)
 {
-	char			**grp;
 	unsigned int	to_start;
-	unsigned int	rotations;
+	char			**grp;
 	unsigned int	x;
 
-	rotations = size / 5;
-	x = 0;
 	while (count_len_matrice(pile.matrice_a) > 2)
 	{
 		grp = find_the_lowers(pile.matrice_a, rotations);
@@ -59,9 +56,18 @@ t_pile	deal_with_five_hundred(t_pile pile, unsigned int size)
 		}
 		free_that_matrice(grp);
 	}
+	return (pile);
+}
+
+t_pile	deal_with_five_hundred(t_pile pile, unsigned int size)
+{
+	unsigned int	index;
+
+	pile = first_side(pile, size / 5);
 	while (count_len_matrice(pile.matrice_b) > 0)
 	{
-		if (should_rotate(pile.matrice_b, get_index(pile.matrice_b, max_arr(pile.matrice_b))))
+		index = get_index(pile.matrice_b, max_arr(pile.matrice_b));
+		if (should_rotate(pile.matrice_b, index))
 			while (ft_atoi(pile.matrice_b[0]) != max_arr(pile.matrice_b))
 				rotate(pile.matrice_b, "rb\n");
 		else

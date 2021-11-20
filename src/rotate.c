@@ -49,3 +49,13 @@ char	**rotate_reverse(char **matrice, char *cmd)
 	print_text(cmd);
 	return (to_return);
 }
+
+unsigned int	should_rotate(char **matrice, unsigned int index)
+{
+	unsigned int	size;
+
+	size = count_len_matrice(matrice);
+	if (index < (size / 2))
+		return (1);
+	return (0);
+}

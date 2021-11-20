@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <string.h>
 
+# define I_MIN -2147483648
+# define I_MAX 2147483647
+
 typedef struct s_loop{
 	int				i;
 	char			**to_return;

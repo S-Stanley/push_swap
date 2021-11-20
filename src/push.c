@@ -33,7 +33,6 @@ char	**push_begin(char **matrice, char *to_add)
 	}
 	to_return[i + 1] = 0;
 	free(matrice);
-	//free_that_matrice(matrice);
 	return (to_return);
 }
 

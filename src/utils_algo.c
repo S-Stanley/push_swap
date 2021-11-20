@@ -78,23 +78,10 @@ unsigned int	get_index(char **matrice, int value)
 	return (i);
 }
 
-unsigned int	should_rotate(char **matrice, unsigned int index)
+char	**get_buffer(char **matrice)
 {
-	unsigned int	size;
-
-	size = count_len_matrice(matrice);
-	if (index < (size / 2))
-		return (1);
-	return (0);
-}
-
-char	**find_the_lowers(char **matrice, int nb_rotation)
-{
-	char			**buffer;
-	unsigned int	i;
-	char			*min;
-	unsigned int	x;
-	char			*tmp;
+	char	**buffer;
+	char	*tmp;
 
 	buffer = NULL;
 	tmp = ft_itoa(min_arr(matrice));
@@ -105,6 +92,17 @@ char	**find_the_lowers(char **matrice, int nb_rotation)
 	}
 	buffer = push_arr(buffer, tmp);
 	free(tmp);
+	return (buffer);
+}
+
+char	**find_the_lowers(char **matrice, int nb_rotation)
+{
+	char			**buffer;
+	unsigned int	i;
+	char			*min;
+	unsigned int	x;
+
+	buffer = get_buffer(matrice);
 	x = 0;
 	while (x < (unsigned int)nb_rotation - 1)
 	{
@@ -113,10 +111,8 @@ char	**find_the_lowers(char **matrice, int nb_rotation)
 		while (matrice[i])
 		{
 			if ((!min || ft_atoi(matrice[i]) < ft_atoi(min)))
-			{
 				if (!find_in_arr(buffer, ft_atoi(matrice[i])))
 					min = matrice[i];
-			}
 			i++;
 		}
 		buffer = push_arr(buffer, min);
