@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 01:27:50 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/20 01:28:55 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 01:27:51 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_iswhitespace(char c)
 	}
 }
 
-int	ft_atoi(char *str)
+long long	ft_atoi(char *str)
 {
 	int			i;
 	long long	res;
@@ -50,9 +50,10 @@ int	ft_atoi(char *str)
 		res = res * 10 + (str[i] - '0');
 		i++;
 		if (res > 2147483647 && pos == 1)
-			return (-1);
+			return (2147483648);
 		if (res > 2147483648 && pos == -1)
-			return (-1);
+			return (-2147483649);
 	}
 	return (res * pos);
 }
+

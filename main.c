@@ -28,8 +28,6 @@ int	main(int argc, char **argv)
 		deal_with_three_arg(pile);
 	else if (argc <= 6)
 		deal_with_five_arg(pile);
-	else if (argc <= 101)
-		deal_with_five_hundred(pile, size);
 	else
 		deal_with_five_hundred(pile, size);
 }

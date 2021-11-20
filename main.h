@@ -49,7 +49,7 @@ char			**rotate_reverse(char **matrice, char *cmd);
 unsigned int	is_sorted_reverse(char **stack);
 char			*ft_itoa(int n);
 unsigned int	ft_strlen(char *str);
-int				ft_atoi(char *str);
+long long		ft_atoi(char *str);
 void			print_text(char *str);
 unsigned int	find_in_arr(char **matrice, int to_find);
 void			verif_arg(char **matrice);

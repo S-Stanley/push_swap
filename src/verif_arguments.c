@@ -47,11 +47,12 @@ void	verif_arg(char **matrice)
 	while (matrice[i])
 	{
 		x = 0;
-		while (matrice[x])
+		while (matrice[i][x])
 		{
-			// if (matrice[i][x] > '9' || matrice[i][x] < '0')
-			// 	free_and_exit(matrice);
-			if (ft_atoi(matrice[i]) == -1)
+			if (matrice[i][x] > '9' || matrice[i][x] < '0')
+				if (matrice[i][x] != '-')
+					free_and_exit(matrice);
+			if (ft_atoi(matrice[i]) < -2147483648 || ft_atoi(matrice[i]) > 2147483647)
 				free_and_exit(matrice);
 			x++;
 		}
