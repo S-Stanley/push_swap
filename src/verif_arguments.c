@@ -30,7 +30,7 @@ void	check_duplication(char **matrice)
 		x = i + 1;
 		while (matrice[x])
 		{
-			if (atoi(matrice[x]) == atoi(matrice[i]))
+			if (ft_atoi(matrice[x]) == ft_atoi(matrice[i]))
 				free_and_exit(matrice);
 			x++;
 		}
