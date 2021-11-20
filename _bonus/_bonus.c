@@ -66,5 +66,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	free_that_matrice(to_print);
+	free(buffer);
 	return (0);
 }
