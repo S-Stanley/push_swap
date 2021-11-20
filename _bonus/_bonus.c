@@ -71,25 +71,68 @@ char	*get_commandes(unsigned int	size)
 	return (buffer);
 }
 
+unsigned int	ft_strcmp(char *s1, char *s2)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}
+
+t_pile	launch_algo(t_pile pile, char **cmd)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (cmd[i])
+	{
+		if (ft_strcmp(cmd[i], "sa") == 0)
+			pile.matrice_a = swap(pile.matrice_a, "");
+		if (ft_strcmp(cmd[i], "sb") == 0)
+			pile.matrice_b = swap(pile.matrice_b, "");
+		if (ft_strcmp(cmd[i], "ra") == 0)
+			pile.matrice_a = rotate(pile.matrice_a, "");
+		if (ft_strcmp(cmd[i], "rb") == 0)
+			pile.matrice_b = rotate(pile.matrice_b, "");
+		if (ft_strcmp(cmd[i], "rra") == 0)
+			pile.matrice_a = rotate_reverse(pile.matrice_a, "");
+		if (ft_strcmp(cmd[i], "rrb") == 0)
+			pile.matrice_b = rotate_reverse(pile.matrice_b, "");
+		i++;
+	}
+	return (pile);
+}
+
 int	main(int argc, char **argv)
 {
 	unsigned int 	size;
-	char 			**to_print;
+	char 			**cmd;
 	char			*buffer;
+	t_pile			pile;
 
+	pile.matrice_a = NULL;
+	pile.matrice_b = NULL;
+	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
+	if (argc > 2)
+		verif_arg(pile.matrice_a);
 	size = 1;
 	buffer = get_commandes(size);
 	if (buffer)
 	{
-		to_print = ft_split(buffer, '\n');
-		int i = 0;
-		while (to_print[i])
-		{
-			printf("**%s**\n", to_print[i]);		
-			i++;
-		}
-		free_that_matrice(to_print);
+		cmd = ft_split(buffer, '\n');
+		free(buffer);
+		pile = launch_algo(pile, cmd);
+		free_that_matrice(cmd);
 	}
-	free(buffer);
+	if (is_sorted(pile.matrice_a))
+		print_text("OK\n");
+	else
+		print_text("KO\n");
 	return (0);
 }
