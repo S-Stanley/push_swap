@@ -68,6 +68,8 @@ char	**get_single_arg(char *str)
 	loop.to_return = get_to_return(count_occ(str, ' ') + 2);
 	if (!loop.to_return)
 		return (NULL);
+	while (str[++loop.i] == 32)
+		continue ;
 	while (str[++loop.i])
 	{
 		loop = ft_loop(loop, str);
