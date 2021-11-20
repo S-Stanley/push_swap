@@ -383,11 +383,54 @@ void	print_text(char *str)
 	write(1, str, ft_strlen(str));
 }
 
-void	verif_arg()
+void	free_and_exit(char **matrice)
 {
-	// check_only_nbr();
-	// check_duplication();
-	// check_int();
+	free_that_matrice(matrice);
+	print_text("Error\n");
+	exit(0);
+}
+
+void	check_duplication(char **matrice)
+{
+	unsigned int	i;
+	unsigned int	x;
+
+	i = 0;
+	while (matrice[i])
+	{
+		x = i + 1;
+		while (matrice[x])
+		{
+			if (atoi(matrice[x]) == atoi(matrice[i]))
+				free_and_exit(matrice);
+			x++;
+		}
+		i++;
+	}
+}
+
+#include "stdio.h"
+
+void	verif_arg(char **matrice)
+{
+	unsigned int	i;
+	unsigned int	x;
+
+	i = 0;
+	while (matrice[i])
+	{
+		x = 0;
+		while (matrice[x])
+		{
+			// if (matrice[i][x] > '9' || matrice[i][x] < '0')
+			// 	free_and_exit(matrice);
+			if (ft_atoi(matrice[i]) == -1)
+				free_and_exit(matrice);
+			x++;
+		}
+		i++;
+	}
+	check_duplication(matrice);
 }
 
 int main(int argc, char **argv)
@@ -400,7 +443,7 @@ int main(int argc, char **argv)
 	if (!argc || !argv)
 		return (0);
 	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
-	verif_arg();
+	verif_arg(pile.matrice_a);
 	size = count_len_matrice(pile.matrice_a);
 	if (argc <= 4)
 		deal_with_three_arg(pile);

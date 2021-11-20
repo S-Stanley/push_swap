@@ -40,7 +40,7 @@ int	ft_atoi(char *str)
 		if (res > 2147483647 && pos == 1)
 			return (-1);
 		if (res > 2147483648 && pos == -1)
-			return (0);
+			return (-1);
 	}
 	return (res * pos);
 }
