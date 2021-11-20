@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 01:38:50 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/20 13:28:11 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 13:50:31 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,12 @@ char	**find_the_lowers(char **matrice, int nb_rotation)
 	unsigned int	i;
 	char			*min;
 	unsigned int	x;
+	char			*tmp;
 
 	buffer = NULL;
-	buffer = push_arr(buffer, ft_itoa(min_arr(matrice)));
+	tmp = ft_itoa(min_arr(matrice));
+	buffer = push_arr(buffer, tmp);
+	free(tmp);
 	x = 0;
 	while (x < (unsigned int)nb_rotation - 1)
 	{
@@ -107,7 +110,7 @@ char	**find_the_lowers(char **matrice, int nb_rotation)
 			if ((!min || ft_atoi(matrice[i]) < ft_atoi(min)))
 			{
 				if (!find_in_arr(buffer, ft_atoi(matrice[i])))
-					min = ft_strdup(matrice[i]);
+					min = matrice[i];
 			}
 			i++;
 		}

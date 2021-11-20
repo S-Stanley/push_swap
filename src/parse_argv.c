@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 14:50:48 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/14 14:50:49 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 13:52:23 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ char	**parse_argv(int argc, char **argv, char **nbr)
 				exit(0);
 			x++;
 		}
-		free(tmp);
+		free_that_matrice(tmp);
 		i++;
 	}
 	return (nbr);

@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 13:25:47 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/20 13:09:40 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 13:50:57 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,9 @@ int	main(int argc, char **argv)
 		verif_arg(pile.matrice_a);
 	size = count_len_matrice(pile.matrice_a);
 	grp = find_the_lowers(pile.matrice_a, size / 5);
-	// if (argc <= 4)
-	// 	pile = deal_with_three_arg(pile);
-	// else if (argc <= 6)
-	// 	pile = deal_with_five_arg(pile);
-	// else
-	// 	pile = deal_with_five_hundred(pile, size);
-	// free_that_matrice(pile.matrice_a);
-	// if (pile.matrice_b)
-	// 	free_that_matrice(pile.matrice_b);
+	free_that_matrice(pile.matrice_a);
+	if (pile.matrice_b)
+		free_that_matrice(pile.matrice_b);
+	free_that_matrice(grp);
+	return (0);
 }
