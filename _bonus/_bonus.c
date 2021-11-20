@@ -37,16 +37,13 @@ char	*ft_concat(char *s1, char *s2)
 	return (to_return);
 }
 
-int	main(int argc, char **argv)
+char	*get_commandes(unsigned int	size)
 {
 	char			*buffer;
 	unsigned int	readed;
-	unsigned int 	size;
 	char			*new_buffer;
-	char 			**to_print;
 
 	buffer = NULL;
-	size = 40;
 	new_buffer = NULL;
 	while (1)
 	{
@@ -62,15 +59,28 @@ int	main(int argc, char **argv)
 		}
 		buffer = ft_concat(buffer, new_buffer);
 	}
+	return (buffer);
+}
 
-	to_print = ft_split(buffer, '\n');
-	int i = 0;
-	while (to_print[i])
+int	main(int argc, char **argv)
+{
+	unsigned int 	size;
+	char 			**to_print;
+	char			*buffer;
+
+	size = 40;
+	buffer = get_commandes(size);
+	if (buffer)
 	{
-		printf("**%s**\n", to_print[i]);		
-		i++;
+		to_print = ft_split(buffer, '\n');
+		int i = 0;
+		while (to_print[i])
+		{
+			printf("**%s**\n", to_print[i]);		
+			i++;
+		}
+		free_that_matrice(to_print);
 	}
-	free_that_matrice(to_print);
 	free(buffer);
 	return (0);
 }
