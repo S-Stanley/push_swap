@@ -25,9 +25,9 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 		verif_arg(pile.matrice_a);
 	size = count_len_matrice(pile.matrice_a);
-	if (argc <= 4)
+	if (size <= 3)
 		pile = deal_with_three_arg(pile);
-	else if (argc <= 6)
+	else if (size <= 5)
 		pile = deal_with_five_arg(pile);
 	else
 		pile = deal_with_five_hundred(pile, size);

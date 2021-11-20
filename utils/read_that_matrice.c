@@ -22,6 +22,7 @@ void	read_that_matrice(char **matrice)
 	while (matrice[i])
 	{
 		print_text(matrice[i]);
+		print_text("\n");
 		i++;
 	}
 }
