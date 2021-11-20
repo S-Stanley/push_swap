@@ -54,7 +54,10 @@ int	main(int argc, char **argv)
 		readed = read(STDIN_FILENO, new_buffer, size - 1);
 		new_buffer[size] = 0;
 		if (readed == 0)
+		{
+			free(new_buffer);
 			break;
+		}
 		buffer = ft_concat(buffer, new_buffer);
 	}
 
