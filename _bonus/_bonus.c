@@ -91,7 +91,7 @@ int	main(int argc, char **argv)
 	char			*buffer;
 	t_pile			pile;
 
-	if (argv == 0)
+	if (argc == 1)
 		return (0);
 	pile = setup_pile(argc, argv);
 	if (argc > 2)
