@@ -134,5 +134,8 @@ int	main(int argc, char **argv)
 		print_text("OK\n");
 	else
 		print_text("KO\n");
+	free_that_matrice(pile.matrice_a);
+	if (pile.matrice_b)
+		free(pile.matrice_b);
 	return (0);
 }
