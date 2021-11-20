@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:07:31 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/20 17:07:34 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/20 17:32:18 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,11 @@ t_pile	launch_algo(t_pile pile, char **cmd)
 	return (pile);
 }
 
-t_pile	setup_pile(void)
+t_pile	setup_pile(int argc, char **argv)
 {
 	t_pile	pile;
 
-	pile.matrice_a = NULL;
+	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
 	pile.matrice_b = NULL;
 	return (pile);
 }
@@ -91,8 +91,9 @@ int	main(int argc, char **argv)
 	char			*buffer;
 	t_pile			pile;
 
-	pile = setup_pile();
-	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
+	if (argv == 0)
+		return (0);
+	pile = setup_pile(argc, argv);
 	if (argc > 2)
 		verif_arg(pile.matrice_a);
 	buffer = get_commandes(10);
