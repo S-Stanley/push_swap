@@ -58,9 +58,10 @@ BONUS_SRC = src/parse_argv.c \
 	utils/ft_strlen.c \
 	utils/print_text.c \
 	utils/ft_strdup.c \
-	_bonus/_bonus_ft_concat.c \
+	_bonus/_bonus_ft_strjoin.c \
 	_bonus/_bonus_ft_split.c \
-	_bonus/_bonus.c
+	_bonus/_bonus.c \
+	_bonus/_bonus_push.c
 BONUS_OBJS=$(BONUS_SRC:.c=.o)
 BONUS_NAME= checker
 

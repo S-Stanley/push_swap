@@ -12,30 +12,43 @@
 
 #include "../main.h"
 
-char	*ft_concat(char *buffer, char *new_buffer)
+void	ft_concat(const char *s1, const char *s2, char *res)
 {
-	int				i;
-	int				x;
-	char			*to_return;
-	int				size;
+	int		i;
+	int		n;
 
-	size = ft_strlen(buffer) + ft_strlen(new_buffer) + 1;
-	i = -1;
-	to_return = malloc(sizeof(char) * size);
-	if (!to_return)
+	i = 0;
+	while (s1[i])
 	{
-		free(buffer);
-		free(new_buffer);
-		exit(0);
+		res[i] = s1[i];
+		i++;
 	}
-	if (buffer)
-		while (buffer[++i])
-			to_return[i] = buffer[i];
-	x = -1;
-	while (new_buffer[++x])
-		to_return[++i] = new_buffer[x];
-	to_return[++i] = 0;
-	free(buffer);
-	free(new_buffer);
-	return (to_return);
+	n = i;
+	i = 0;
+	while (s2[i])
+	{
+		res[n] = s2[i];
+		n++;
+		i++;
+	}
+	res[n] = '\0';
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*res;
+	int		len_s1;
+	int		len_s2;
+
+	if (s1 == NULL)
+		s1 = ft_strdup("");
+	if (s2 == NULL)
+		s2 = ft_strdup("");
+	len_s1 = ft_strlen((char *)s1);
+	len_s2 = ft_strlen((char *)s2);
+	res = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
+	if (!res)
+		return (NULL);
+	ft_concat(s1, s2, res);
+	return (res);
 }

@@ -33,7 +33,7 @@ char	*get_commandes(unsigned int size)
 			free(new_buffer);
 			break ;
 		}
-		buffer = ft_concat(buffer, new_buffer);
+		buffer = ft_strjoin(buffer, new_buffer);
 	}
 	return (buffer);
 }
@@ -59,6 +59,10 @@ t_pile	launch_algo(t_pile pile, char **cmd)
 	i = 0;
 	while (cmd[i])
 	{
+		if (ft_strcmp(cmd[i], "pa") == 0)
+			pile = push_a_2(pile.matrice_a, pile.matrice_b);
+		if (ft_strcmp(cmd[i], "pb") == 0)
+			pile = push_b_2(pile.matrice_a, pile.matrice_b);
 		if (ft_strcmp(cmd[i], "sa") == 0)
 			pile.matrice_a = swap(pile.matrice_a, "");
 		if (ft_strcmp(cmd[i], "sb") == 0)

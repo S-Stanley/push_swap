@@ -14,6 +14,8 @@
 # define _BONUS_H
 
 char	**ft_split(const char *str, char c);
-char	*ft_concat(char *buffer, char *new_buffer);
+char	*ft_strjoin(char *s1, char *s2);
+t_pile	push_a_2(char **a, char **b);
+t_pile	push_b_2(char **a, char **b);
 
 #endif
