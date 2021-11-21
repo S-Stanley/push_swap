@@ -6,13 +6,13 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 13:25:47 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/20 17:03:22 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/21 17:21:16 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-unsigned int	get_nb_rotation(unsigned int	size)
+unsigned int	get_nb_rotation(unsigned int size)
 {
 	if (size == 100)
 		return (20);
