@@ -12,6 +12,15 @@
 
 #include "main.h"
 
+unsigned int	get_nb_rotation(unsigned int	size)
+{
+	if (size == 100)
+		return (20);
+	if (size == 500)
+		return (50);
+	return (size / 5);
+}
+
 int	main(int argc, char **argv)
 {
 	t_pile			pile;
@@ -30,7 +39,7 @@ int	main(int argc, char **argv)
 	else if (size <= 5)
 		pile = deal_with_five_arg(pile);
 	else
-		pile = deal_with_a_lot(pile, size);
+		pile = deal_with_a_lot(pile, get_nb_rotation(size));
 	free_that_matrice(pile.matrice_a);
 	if (pile.matrice_b)
 		free_that_matrice(pile.matrice_b);

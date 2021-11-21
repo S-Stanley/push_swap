@@ -65,7 +65,7 @@ t_pile	deal_with_a_lot(t_pile pile, unsigned int size)
 {
 	unsigned int	index;
 
-	pile = first_side(pile, size / 5);
+	pile = first_side(pile, size);
 	while (count_len_matrice(pile.matrice_b) > 0)
 	{
 		index = get_index(pile.matrice_b, max_arr(pile.matrice_b));
