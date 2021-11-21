@@ -6,7 +6,7 @@
 /*   By: sserbin <stanleyserbin@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 01:25:33 by sserbin           #+#    #+#             */
-/*   Updated: 2021/11/20 01:25:35 by sserbin          ###   ########.fr       */
+/*   Updated: 2021/11/21 17:20:08 by sserbin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,8 @@ void	verif_arg(char **matrice)
 	}
 	check_duplication(matrice);
 	if (is_sorted(matrice))
+	{	
+		free_that_matrice(matrice);
 		exit(0);
+	}
 }
