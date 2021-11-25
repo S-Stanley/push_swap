@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "main.h"
+#include <stdio.h>
 
 unsigned int	get_nb_rotation(unsigned int size)
 {
@@ -31,6 +32,8 @@ int	main(int argc, char **argv)
 	if (!argc || !argv)
 		return (0);
 	pile.matrice_a = parse_argv(argc, argv, pile.matrice_a);
+	if (!pile.matrice_a)
+		return (0);
 	if (argc > 1)
 		verif_arg(pile.matrice_a);
 	size = count_len_matrice(pile.matrice_a);
