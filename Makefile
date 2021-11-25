@@ -19,6 +19,7 @@ SRC= main.c \
 	src/swap_a.c \
 	src/verif_arguments.c \
 	src/utils_algo.c \
+	src/clean.c \
 	utils/count_len_matrice.c \
 	utils/count_len_next.c \
 	utils/count_occurence.c \
@@ -43,6 +44,7 @@ BONUS_SRC = src/parse_argv.c \
 	src/push.c \
 	src/rotate.c \
 	src/swap_a.c \
+	src/clean.c \
 	src/verif_arguments.c \
 	src/utils_algo.c \
 	utils/count_len_matrice.c \

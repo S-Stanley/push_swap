@@ -88,28 +88,23 @@ char	**parse_argv(int argc, char **argv, char **nbr)
 	char			**tmp;
 	unsigned int	x;
 
-	i = 1;
-	while (i < (unsigned int)argc)
+	i = 0;
+	while (++i < (unsigned int)argc)
 	{
 		if (argv[i][0])
 		{
 			tmp = get_single_arg(argv[i]);
 			if (!tmp)
-			{
-				free_that_matrice(nbr);
-				exit(0);
-			}
-			x = 0;
-			while (tmp[x])
+				free_and_exit_arg(nbr);
+			x = -1;
+			while (tmp[++x])
 			{
 				nbr = push_arr(nbr, tmp[x]);
 				if (!nbr)
 					exit(0);
-				x++;
 			}
 			free_that_matrice(tmp);
 		}
-		i++;
 	}
 	return (nbr);
 }

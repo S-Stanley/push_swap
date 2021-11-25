@@ -65,5 +65,6 @@ unsigned int	get_index(char **matrice, int value);
 unsigned int	is_the_right_place(t_pile pile);
 unsigned int	should_rotate(char **matrice, unsigned int index);
 char			*ft_strdup(char *str);
+void			free_and_exit_arg(char **nbr);
 
 #endif
